@@ -161,6 +161,7 @@ static char *get_os() {
 
     while (getline(&line, &len, os_release) != -1) {
         if (sscanf(line, "NAME=\"%[^\"]+", name) > 0) break;
+        if (sscanf(line, "NAME=%[^\n]+", name) > 0) break;
     }
 
     free(line);
